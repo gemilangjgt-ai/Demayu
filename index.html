@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laporan Proyek</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div>
+        <h1>Laporan Proyek</h1>
+        <p>Dokumentasi laporan mingguan</p>
+    </div>
+
+    <button id="newReportBtn">
+        + Laporan Baru
+    </button>
+
+</header>
+
+
+<main>
+
+    <section class="stats">
+
+        <div class="stat">
+            <span>Total Laporan</span>
+            <strong id="totalReports">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Total Foto</span>
+            <strong id="totalPhotos">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Laporan Terakhir</span>
+            <strong id="lastReport">-</strong>
+        </div>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+            <div>
+                <h2>Laporan Mingguan</h2>
+                <p>Tanggal laporan dibuat otomatis.</p>
+            </div>
+        </div>
+
+
+        <form id="reportForm">
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>Nama Proyek</label>
+                    <input
+                        id="projectName"
+                        type="text"
+                        placeholder="Contoh: Pembangunan Gedung"
+                        required
+                    >
+                </div>
+
+
+                <div class="field">
+                    <label>Lokasi Proyek</label>
+                    <input
+                        id="location"
+                        type="text"
+                        placeholder="Contoh: Magelang"
+                        required
+                    >
+                </div>
+
+
+                <div class="field">
+                    <label>Minggu Ke-</label>
+                    <input
+                        id="weekNumber"
+                        type="number"
+                        min="1"
+                        placeholder="1"
+                        required
+                    >
+                </div>
+
+
+                <div class="field">
+                    <label>Tanggal Laporan</label>
+
+                    <input
+                        id="reportDate"
+                        type="text"
+                        readonly
+                    >
+                </div>
+
+
+                <div class="field full">
+                    <label>Uraian Pekerjaan</label>
+
+                    <textarea
+                        id="description"
+                        placeholder="Tuliskan uraian pekerjaan minggu ini..."
+                        required
+                    ></textarea>
+                </div>
+
+            </div>
+
+
+            <div class="upload-area">
+
+                <label class="upload-button">
+
+                    <input
+                        id="photoInput"
+                        type="file"
+                        accept="image/*"
+                        multiple
+                    >
+
+                    <strong>
+                        Pilih Foto dari Galeri
+                    </strong>
+
+                    <span>
+                        Bisa memilih beberapa foto sekaligus
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <div id="photoPreview" class="photo-preview"></div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="primary"
+                >
+                    Simpan Laporan
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="secondary"
+                >
+                    Batal
+                </button>
+
+            </div>
+
+        </form>
+
+    </section>
+
+
+    <section class="panel">
+
+        <div class="panel-header">
+
+            <div>
+                <h2>Arsip Laporan</h2>
+                <p>Semua laporan yang sudah dibuat.</p>
+            </div>
+
+            <input
+                id="searchInput"
+                class="search"
+                type="search"
+                placeholder="Cari laporan..."
+            >
+
+        </div>
+
+
+        <div id="reportList"></div>
+
+    </section>
+
+</main>
+
+
+<div
+    id="imageViewer"
+    class="image-viewer"
+>
+
+    <button id="closeViewer">
+        Tutup
+    </button>
+
+    <img id="viewerImage">
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>
